@@ -29,7 +29,6 @@ mkdir BUILD RPMS SOURCES SPECS SRPMS
 cp ../redhat/td-libyaml.spec SPECS
 # locate source tarball
 mv ../$dst.tar.gz SOURCES
-echo 'fooooooooooooooooooooooooooo'
 # build
 if [ -z "$rpm_dist" ]; then
   rpmbuild -v -ba --clean SPECS/td-libyaml.spec
