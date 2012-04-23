@@ -20,13 +20,18 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 LibYAML is a C library implementation of a YAML 1.1 parser and emitter.
 It includes a Python language binding.
 
+# 2011/08/01 Kazuki Ohta <kazuki.ohta@gmail.com>
+# prevent stripping the debug info.
+%define debug_package %{nil}
+%define __strip /bin/true
+
 %prep
 
 %setup -n yaml-%{version}
 
 %build
 
-%configure --prefix=%{_libdir}/fluent/libyaml --libdir=%{_libdir}/fluent/libyaml/lib --includedir=%{_libdir}/fluent/libyaml/include --datadir=%{_libdir}/fluent/libyaml/share
+%configure --prefix=%{_libdir}/fluent/libyaml --exec-prefix=%{_libdir}/fluent/libyaml --libdir=%{_libdir}/fluent/libyaml/lib --includedir=%{_libdir}/fluent/libyaml/include
 %{__make} %{?_smp_mflags} AM_CFLAGS=""
 
 %install
@@ -41,7 +46,7 @@ It includes a Python language binding.
 
 %files
 %defattr(-, root, root, 0755)
-%doc LICENSE README
+%doc
 %{_libdir}/fluent/libyaml/
 
 %changelog
