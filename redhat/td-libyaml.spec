@@ -31,7 +31,7 @@ It includes a Python language binding.
 
 %build
 
-%configure --prefix=%{_libdir}/fluent/libyaml --exec-prefix=%{_libdir}/fluent/libyaml --libdir=%{_libdir}/fluent/libyaml/lib --includedir=%{_libdir}/fluent/libyaml/include
+%configure --disable-static --prefix=%{_libdir}/fluent/libyaml --exec-prefix=%{_libdir}/fluent/libyaml --libdir=%{_libdir}/fluent/libyaml/lib --includedir=%{_libdir}/fluent/libyaml/include
 %{__make} %{?_smp_mflags} AM_CFLAGS=""
 
 %install
